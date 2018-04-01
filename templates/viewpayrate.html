@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="/static/viewprofileshiftg1.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.jo{
+background-image:url("/static/payet.jpg");
+background-repeat:repeat;
+}
+h1{
+font-size:35px;
+}
+.button{
+background-color:black;
+}
+</style>
+</head>
+<body class="jo">
+
+{% for row in rows %}
+
+<h1><b> Pay rate for {{row[1]}} is {{row[5]}}</b></h1>{% endfor %}
+
+			
+			
+</div>
+<a href="{{url_for('loginverify')}}"><button class = "back">Go back to Main Page</button></a>
+</body>
+</html>
