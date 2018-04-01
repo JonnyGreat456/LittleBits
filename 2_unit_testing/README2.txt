@@ -3,15 +3,14 @@ This is the customers Web application html pages.
 To Run make sure that all the html files are in a single folder and start with opening "home.html"
 Currently the website does not support a database therefore some of the functionalities are currently not working.
 The SOS option, Adding items and placing  the order are currently in the works after the database is complete.
-Below is a GUI test with time stamps. 
 To run the test, simply run run_customer_GUI.cs but before executing, change line 82 and 83 
-Report.Log(ReportLevel.Info, "Website", "Opening web site 'file:///C:/Users/hagar/Desktop/html%20pages/home.html' with browser 'chrome' in normal mode.", new RecordItemIndex(0));
-            Host.Current.OpenBrowser("file:///C:/Users/hagar/Desktop/html%20pages/home.html", "chrome", "", false, false, false, false, false);
+"Report.Log(ReportLevel.Info, "Website", "Opening web site 'file:///C:/Users/hagar/Desktop/html%20pages/home.html' with browser 'chrome' in normal mode.", new RecordItemIndex(0));
+            Host.Current.OpenBrowser("file:///C:/Users/hagar/Desktop/html%20pages/home.html", "chrome", "", false, false, false, false, false);"
 and change the address of the folder accordingly.
 Another way to run the GUI test if Ranorex application "https://www.ranorex.com/" is downloaded on your PC.
 If so, Run customerGUI.exe. 
 If all of the above fails, there is a video "CustomerGUIscreenCapture.mp4" of a screen recording of all the pages being tested.
-Below is the time-line of the GUI test using  Ranorex.
+Below is a GUI test with time stamps using Ranorex.
 
 New_Recording
 Success
