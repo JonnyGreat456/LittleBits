@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.po{
+background-image:url("/static/or.jpg");
+}
+table{
+margin-left:20%;
+border-collapse:collapse;
+}
+th,td{
+font-family:arial;
+font-size:25px;
+}
+a{margin-left:20%;
+}
+tr:nth-child(even){background-color:#f2f2f2}
+th{
+background-color:#FD8B79;
+}
+button{
+height:45px;
+width:95px;
+}
+
+</style>
+<body class="po">
+	            <table  border="collapse" id = "demo " border = 1>
+                <thead>
+                    <tr>
+                        
+                        <th>Table Number</th>
+                        <th>Menu items</th>
+                        <th>Quantity</th>
+						<th>Order Status</th>
+						<th>Order Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+					
+                    <tr>
+                        
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>	
+                        <td>{{row[2]}}</td>
+						<td><button id = "prog" onclick="inprogress(this,'orange')">In progress</button>
+						<td><button id="ready" onclick = "ready(this,'green')">Ready</td></button>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+			<a href="{{url_for('loginverify')}}"><button class = "back">Go back to Main Page</button></a>
+			
+<script>
+function inprogress(el,clr){
+	el.style.backgroundColor=clr;
+	}
+function ready(elm,clrm){
+	elm.style.backgroundColor=clrm;
+	}
+</script>
+</body>
+</html>

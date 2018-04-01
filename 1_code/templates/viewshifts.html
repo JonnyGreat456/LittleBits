@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+body {
+    font-family: "Lato", sans-serif;
+}
+/* Top nav */
+.topmenu {
+margin:190px;
+}
+/* Fixed sidenav, full height */
+.sidenav {
+    height: 100%;
+    width: 150px;
+	color:white;
+    position: fixed;
+    z-index: 1;
+    top: 0px;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 75px;
+	padding-left: 0px;
+	padding-right:60px;
+	padding-bottom:40px;
+	width:200px;
+	height:800px;
+	
+}
+.sidenav a{
+	
+    padding: 20px 22px 12px 33px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: 1px solid #818181;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover{
+    background: #ddd;
+  color: black;
+}
+.chefshiftsclass a:hover{
+	background: #F5B7B1;
+  color: black;
+}
+
+.navbar {
+  overflow: hidden;
+  font-size: 30px;
+  padding: 8px 10px 8px 18px;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  left:250px;
+  width: 100%;
+}
+
+.chefshiftsclass {
+padding-left:250px;
+padding-top:0px;
+position:fixed;
+top:75px;
+}
+
+.navbar a {
+  float: left;
+  font-size:18px;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px 34px 18px 30px;
+  text-decoration: none;
+  border: 1px solid #f2f2f2 ;
+  
+}
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+table, th, td {
+    border: 1px solid black;
+	border-collapse: collapse;
+}
+th, td {
+    padding-top: 17px;
+	padding-bottom: 15px;
+	padding-right:12px;
+	padding-left:11px;
+	font-size:18px;
+	background-color:#cccccc;
+}
+.button {
+  display: inline-block;
+  font-size: 17px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #ff9999;
+  border: none;
+  height:25px;
+  border-radius: 6px;
+  
+  border: 1px solid black;
+  
+}
+.button:hover {background-color: #ff9999}
+
+.button:active {
+  background-color: #ff99991;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+.demo{
+background-color=blue;
+}
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+  <a href="#about">James Beard</a>
+  <a href="#clients">Gordon Ramsay</a>
+  <a href="#a">Jamie Oliver</a>
+  <a href="#c">Emeril Lagasse</a>
+  <a href="#e">Bobby Flay</a>
+  <a href="#g">Rachael Ray</a>
+  <a href="#i">Thomas Keller</a>
+  
+  
+  
+    
+</div>
+
+<div class="topmenu">
+<div class="navbar">
+  <a href="#monday">Monday</a>
+  <a href="#tuesday">Tuesday</a>
+  <a href="#wednesday">Wednesday</a>
+  <a href="#thursday">&nbsp; Thursday &nbsp;   </a>
+  <a href="#friday">Friday &nbsp; &nbsp;  </a>
+  <a href="#saturday">Saturday</a>
+  <a href="#sunday">&nbsp;  Sunday &nbsp;  </a>
+</div>
+</div>
+<div class = "chefshiftsclass" id = "demo222">
+
+<table style="width:100%">
+         
+            <tr>
+			
+               {% for j in range(1,7) %}<td><a><button class="button" id="demo" type = "button" value={{j}} onclick="myFunction(this.value)" >{{ result.item(1,j) }} </button></td>{% endfor %}
+			  </a>
+            </tr>
+		
+            <tr>
+               {% for j in range(1,7) %}<td><a><button class="button" type = "button" onclick="alert('hello world')" > {{ result.item(2,j) }}</button> </td>{% endfor %}</a>
+            </tr>
+			<tr>
+               {% for j in range(1,7) %}<td><a><button class="button" type = "button" onclick="alert('hello world')"> {{ result.item(3,j) }}</button> </td>{% endfor %}</a>
+            </tr>
+			<tr>
+               {% for j in range(1,7) %}<td><a><button class="button" type = "button" onclick="alert('hello world')">  {{ result.item(4,j) }}</button> </td>{% endfor %}</a>
+            </tr>
+			<tr>
+               {% for j in range(1,7) %}<td> <a><button class="button" type = "button" onclick="alert('hello world')"> {{ result.item(5,j) }}</button> </td>{% endfor %}</a>
+            </tr>
+			<tr>
+               {% for j in range(1,7) %}<td><a><button class="button" type = "button" onclick="alert('hello world')">  {{ result.item(6,j) }}</button> </td>{% endfor %}</a>
+			<tr>
+               {% for j in range(1,7) %}<td><a><button class="button" type = "button" onclick="alert('hello world')">  {{ result.item(7,j) }}</button> </td>{% endfor %}</a>
+            </tr>
+        
+		
+</table>
+<div id = "see">
+</div>
+
+</div>
+
+
+
+<script>
+var count = 0;
+function myFunction(val) {
+	var j = val;
+	var change = document.getElementById("demo");
+    var txt;
+	alert(j);
+    var person = prompt("change the shift timings to:", "");
+    if (person == null || person == "") {
+        txt = "shift deleted";
+    } else {
+        txt = person;
+    }
+    change.innerHTML = txt;
+	
+	forms_add(j);
+	
+	return j;
+}
+	//create a form
+//create a form
+function forms_add(j){
+	var count = 1;
+	var f = document.createElement("form");
+	f.setAttribute('method',"post");
+	f.setAttribute('action',"/upload/");
+	f.setAttribute('id',"formsdata");
+	var jj = j;
+//create input element
+	//document.writeln("Enter the name of the chef");
+	alert("entered");
+	var index = document.createElement("input");
+	index.setAttribute('type','hidden');
+	index.setAttribute('name','jj');
+	index.setAttribute('value',jj);
+	
+	var nameofchef = document.createElement("input");
+	nameofchef.setAttribute('type','text');
+	nameofchef.setAttribute('value','Chef');
+	nameofchef.setAttribute('name','chefname');
+
+//create input element
+	//document.writeln("Enter the day of the week");
+	var day = document.createElement("input");
+	day.setAttribute('type','text');
+	day.setAttribute('value','Day');
+	day.setAttribute('name','dayoftheweek');
+
+//create input element
+	//document.writeln("Enter the new shift timings");
+	var shift = document.createElement("input");
+	shift.setAttribute('type','text');
+	shift.setAttribute('value','shift timings');
+	shift.setAttribute('name','newshifttimings');
+
+//create a button
+	var sub = document.createElement("input");
+	sub.setAttribute('type','submit');
+	sub.setAttribute('value','add shift');
+	sub.setAttribute('name','add shift');
+
+// add all elements to the form
+	f.appendChild(index);
+	f.appendChild(nameofchef);
+	f.appendChild(day);
+	f.appendChild(shift);
+	f.appendChild(sub);
+
+	var fr = document.getElementById("see")
+	fr.appendChild(f); //pure javascript
+
+	var idforms = document.getElementById("formsdata");
+	
+	return(idforms);
+}
+
+
+</script>
+</body>
+</html> 
