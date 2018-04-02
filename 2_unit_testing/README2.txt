@@ -165,3 +165,8 @@ Jump to item  Open in Spy
 
  Mouse Left Click item 'HomeHtml' at 380;275 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
+
+Manager Unit Testing
+The manager part didnt really have any unit testing since thing.py integrates the database, python, and html pages all together. 
+There is Menu.py which we thought would be used in testing but was not used at all. 
+That is really the only that you could do unit testing by running the methods outside the functions, but make sure the system has python 3 installed on it since the askRating method takes in user input but the function for calling user input differs based on python 2 or 3. You can run methods by calling createFirstMenuSection() with the correct parameters first to initalize the menu, and then calling other methods after it. Save any changes you make to the file and use print("Menu:", menu) to see the menu object with menu items inside. Then to run it go into terminal/command prompt window and navigate to the location of the Menu.py file and type python Menu.py to run it and see output. 
