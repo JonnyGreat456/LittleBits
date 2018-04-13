@@ -25,11 +25,21 @@ def addItemForm():
 def deleteItemForm():
     return render_template('deleteItemForm.html')
 
+@app.route('/menuUpdated')
+def updateMenuItem():
+    return render_template('updateMenuItem.html')
+
 @app.route('/inventoryPage')
 def inventoryPage():
    con = sql.connect("inventory.db")
    cursor = con.execute("SELECT itemName, quantity, unitOfMeasure, expirationDate, costPerUnit FROM inventory")
    return render_template("inventoryPage.html", rows = cursor.fetchall())
+
+@app.route('/menuPage')
+def menuPage():
+    con=sql.connect("menu.db")
+    ex = con.execute("SELECT category, itemName, itemPrice,listRatings,ingredientName,quantity,unitOfMeasure FROM menu")
+    return render_template("menuPage.html", rows = ex.fetchall())
 
 @app.route('/result', methods = ['POST', 'GET'])
 def addInv():
@@ -73,6 +83,28 @@ def delInv():
             msg = "error in insert operation"
         finally:
             return render_template("result2.html", msg = msg)
+
+@app.route('/updatedMenu', methods=['POST','GET'])
+def updMenu():
+    print("Works\n")
+    msg=""
+    if(request.method =='POST'):
+        try:
+            print("Updating\n")
+            cat = request.form['cat']
+            nme = request.form['nme']
+            pri = request.form['pri']
+            con=sql.connect('Menu.db')
+            con.execute("UPDATE menu SET itemPrice=pri WHERE category=cat, itemName=nme;")
+            con.commit()
+            print("Updated\n")
+            msg = "Menu item successfully updated"
+        except:
+            con.rollback()
+            msg = "Error in updating menu item"
+        finally:
+            return render_template("updatedMenu.html", msg= msg)
+
 
 @app.route('/deleted', methods = ['POST', 'GET'])
 def delMenu():
@@ -125,10 +157,6 @@ def addMenu():
 @app.route('/menuoptions1')
 def menuoptions1():
     return render_template("menuoptions1.html")
-
-@app.route('/menuPage')
-def menuPage():
-    return render_template("menuPage.html")
 
 @app.route('/addtoMenu')
 def addtoMenu():
