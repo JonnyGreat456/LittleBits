@@ -84,49 +84,6 @@ def delInv():
         finally:
             return render_template("result2.html", msg = msg)
 
-@app.route('/updatedMenu', methods=['POST','GET'])
-def updMenu():
-    print("Works\n")
-    msg=""
-    if(request.method =='POST'):
-        try:
-            print("Updating\n")
-            cat = request.form['cat']
-            nme = request.form['nme']
-            pri = request.form['pri']
-            con=sql.connect('Menu.db')
-            con.execute("UPDATE menu SET itemPrice=pri WHERE category=cat, itemName=nme;")
-            con.commit()
-            print("Updated\n")
-            msg = "Menu item successfully updated"
-        except:
-            con.rollback()
-            msg = "Error in updating menu item"
-        finally:
-            return render_template("updatedMenu.html", msg= msg)
-
-
-@app.route('/deleted', methods = ['POST', 'GET'])
-def delMenu():
-	print("Good\n")
-	msg = ""
-	if(request.method == 'POST'):
-		try:
-			print("Good\n")
-			cat = request.form['cat']
-			nme = request.form['nme']
-			con = sql.connect('Menu.db')
-			print("Good\n")
-			con.execute("DELETE FROM Menu WHERE itemName=nme \
-			 VALUES (?,?);",(cat,nme))
-			con.commit()
-			print("Good\n")
-			msg = "Menu item successfully deleted"
-		except:
-		    con.rollback()
-		    msg = "error in deleting menu operation"
-		finally:
-		    return render_template("deleted.html", msg = msg)
 
 @app.route('/added', methods = ['POST', 'GET'])
 def addMenu():
@@ -138,13 +95,14 @@ def addMenu():
             cat = request.form['cat']
             nme = request.form['nme']
             pri = request.form['pri']
+            lir = ''
             ing = request.form['ing']
             qua = request.form['qua']
             uom = request.form['uom']
-            con = sql.connect('Menu.db')
+            con = sql.connect('menu.db')
             print("Good\n")
-            con.execute("INSERT INTO Menu (category, itemName, itemPrice, ingredientName, quantity, unitOfMeasure) \
-             VALUES (?,?,?,?,?,?);",(cat,nme,pri,ing,qua,uom))
+            con.execute("INSERT INTO menu (category, itemName, itemPrice,listRatings, ingredientName, quantity, unitOfMeasure) \
+             VALUES (?,?,?,?,?,?,?);",(cat,nme,pri,lir,ing,qua,uom))
             con.commit()
             print("Good\n")
             msg = "Menu item successfully added"
@@ -152,7 +110,49 @@ def addMenu():
             con.rollback()
             msg = "error in inserting menu operation"
         finally:
-            return render_template("added.html", msg = msg)
+            return render_template("added.html", msg = msg)            
+
+@app.route('/updatedMenu', methods=['POST','GET'])
+def updMenu():
+    print("Works\n")
+    msg=""
+    if(request.method =='POST'):
+        try:
+            print("Updating\n")
+            cat = request.form['cat']
+            nme = request.form['nme']
+            pri = request.form['pri']
+            con = sql.connect('menu.db')
+            con.execute("UPDATE menu SET itemPrice=pri WHERE (category=? AND itemName=?);"(cat,nme))
+            con.commit()
+            print("Updated\n")
+            msg = "Menu item successfully updated"
+        except:
+            con.rollback()
+            msg = "Error in updating menu item"
+        finally:
+            return render_template("updatedMenu.html", msg= msg)
+
+@app.route('/deleted', methods = ['POST', 'GET'])
+def delMenu():
+	print("Good\n")
+	msg = ""
+	if(request.method == 'POST'):
+		try:
+			print("Good\n")
+			cat = request.form['cat']
+			nme = request.form['nme']
+			con = sql.connect('menu.db')
+			print("Good\n")
+			con.execute("DELETE FROM menu WHERE (category=? AND itemName=?);",(cat,nme))
+			con.commit()
+			print("Good\n")
+			msg = "Menu item successfully deleted"
+		except:
+		    con.rollback()
+		    msg = "error in deleting menu operation"
+		finally:
+		    return render_template("deleted.html", msg = msg)
 
 @app.route('/menuoptions1')
 def menuoptions1():
