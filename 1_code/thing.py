@@ -119,11 +119,11 @@ def updMenu():
     if(request.method =='POST'):
         try:
             print("Updating\n")
+            pri = request.form['pri']
             cat = request.form['cat']
             nme = request.form['nme']
-            pri = request.form['pri']
             con = sql.connect('menu.db')
-            con.execute("UPDATE menu SET itemPrice=pri WHERE (category=? AND itemName=?);"(cat,nme))
+            con.execute("UPDATE menu SET itemPrice=? WHERE (category=? AND itemName=?);",(pri,cat,nme))
             con.commit()
             print("Updated\n")
             msg = "Menu item successfully updated"
