@@ -152,15 +152,16 @@ conn.execute("INSERT INTO Menu (ID, category, itemName, itemPrice, listRatings, 
 print("Elements inserted successfully..." + "\n")
 
 conn.commit()
-cursor = conn.execute("SELECT category, itemName, itemPrice, listRatings, ingredientName, quantity, unitOfMeasure from menu;")
+cursor = conn.execute("SELECT ID, category, itemName, itemPrice, listRatings, ingredientName, quantity, unitOfMeasure from menu;")
 for row in cursor:
-   print("CATEGORY = " + (row[0]))
-   print("ITEM_NAME = " + (row[1]))
-   print("ITEM_PRICE = " + str(row[2]))
-   print("LIST_OF_RATINGS = " + (row[3]))
-   print("INGREDIENT_NAME = " + (row[4]))
-   print("QUANTITY = " + str(row[5]))
-   print("UNIT_OF_MEASURE = " + (row[6]) + "\n")
+   print("ID = " + (row[0]))
+   print("CATEGORY = " + (row[1]))
+   print("ITEM_NAME = " + (row[2]))
+   print("ITEM_PRICE = " + str(row[3]))
+   print("LIST_OF_RATINGS = " + (row[4]))
+   print("INGREDIENT_NAME = " + (row[5]))
+   print("QUANTITY = " + str(row[6]))
+   print("UNIT_OF_MEASURE = " + (row[7]) + "\n")
 
 print("Operation done successfully" + "\n")
 
