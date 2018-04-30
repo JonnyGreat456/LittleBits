@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, request
+from flask_socketio import SocketIO, send, emit
 import math 
 import sqlite3 as sql 
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret!'
+socketio = SocketIO(app)
+
+
 
 @app.route('/')
 def mainmenu1():
@@ -37,9 +42,9 @@ def inventoryPage():
 
 @app.route('/menuPage')
 def menuPage():
-    con=sql.connect("menu.db")
-    ex = con.execute("SELECT category, itemName, itemPrice,listRatings,ingredientName,quantity,unitOfMeasure FROM menu")
-    return render_template("menuPage.html", rows = ex.fetchall())
+    con=sql.connect("menu.db") #not showing IDs of item wasnt sure if that was important for manager to see IDs
+    ex = con.execute("SELECT ID, category, itemName, itemPrice,listRatings,ingredientName,quantity,unitOfMeasure FROM menu")
+    return render_template("menuPage.html",rows = ex.fetchall())
 
 @app.route('/result', methods = ['POST', 'GET'])
 def addInv():
@@ -92,6 +97,7 @@ def addMenu():
     if(request.method == 'POST'):
         try:
             print("Good\n")
+            ID = ''
             cat = request.form['cat']
             nme = request.form['nme']
             pri = request.form['pri']
@@ -100,9 +106,10 @@ def addMenu():
             qua = request.form['qua']
             uom = request.form['uom']
             con = sql.connect('menu.db')
+
             print("Good\n")
-            con.execute("INSERT INTO menu (category, itemName, itemPrice,listRatings, ingredientName, quantity, unitOfMeasure) \
-             VALUES (?,?,?,?,?,?,?);",(cat,nme,pri,lir,ing,qua,uom))
+            con.execute("INSERT INTO menu (ID, category, itemName, itemPrice,listRatings, ingredientName, quantity, unitOfMeasure) \
+             VALUES (?,?,?,?,?,?,?);",(ID,cat,nme,pri,lir,ing,qua,uom))
             con.commit()
             print("Good\n")
             msg = "Menu item successfully added"
@@ -179,4 +186,5 @@ def buttonresult1():
     return render_template("buttonresult1.html")
 
 if(__name__ == "__main__"):
+    #socketio.run(app)
    app.run(debug = True)
