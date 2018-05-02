@@ -160,28 +160,6 @@ def delMenu():
 		    msg = "error in deleting menu operation"
 		finally:
 		    return render_template("deleted.html", msg = msg)
-@app.route('/ingredientPage', methods = ['POST', 'GET'])
-def IngredientPage():
-    print("Good\n")
-    msg = ""
-    if(request.method == 'POST'):
-        try:
-            print("Good\n")
-            ine = request.form['ine']
-            con = sql.connect('menu.db')
-            cursor=con.cursor()
-            cursor.execute('SELECT * FROM menu WHERE (ingredientName=ine);')
-        except:
-            con.rollback()
-        finally:
-            return render_template("ingredientPage.html")    
-            #, rows = lol.fetchall()
-
-@app.route('/Ingredients')
-def searchbyIngredient():
-    con=sql.connect("menu.db") #not showing IDs of item wasnt sure if that was important for manager to see IDs
-    ex = con.execute("SELECT itemName,itemPrice, listRatings, ingredientName, quantity, unitOfMeasure FROM menu")
-    return render_template("ingredientForm.html", rows = ex.fetchall())	
 
 @app.route('/menuoptions1')
 def menuoptions1():
