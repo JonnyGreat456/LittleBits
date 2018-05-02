@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Add Menu Item Form</title>
+		<style>
+      
+    html{
+   background: -webkit-linear-gradient(45deg, #C60808, #141E30);
+   height: 100%;
+}
+a:link, a:visited, a:active{
+  color: black;
+  text-decoration: none;
+}
+
+#cancel2{
+  margin-bottom: 12%;
+}
+#logout{
+  margin-top: -5%;
+  font-size: 95%;
+}
+.pageName{
+  width: 16.6%;
+  margin: .01%;
+  margin-left: 40%;
+  border: 3px solid black;
+  padding-left: 5px;
+  padding-right: 10px;
+  padding: 5px;
+  background-color: #FF5779;
+  text-align: center;
+  margin-top: -4.3%;
+}
+.headr {
+  width: 16.6%;
+  margin: 0.7%;
+  border: 3px solid black;
+  padding-left: 5px;
+  padding-right: 10px;
+  padding: 0.4%;
+  background-color: #FF5779;
+} 
+  
+.infoBox {
+  font-size: 20px;
+  width: 30%;
+  margin: 2%;
+  border: 3px solid black;
+  /*padding-left: 25px;
+  padding-right: 15px;*/
+  padding: 2%;
+  background-color: #FF5779;
+  margin-left: 32%;
+  
+  margin-top: 5%;
+}
+    
+.returnBtn {
+  display: block;
+  border-radius: 4px;
+  background-color: #FF5353;
+  text-align: center;
+  width: 6.65%;
+  font-size: 150%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 0.1%;
+  border: 1px solid black;
+  /*display: inline-block;*/
+  
+}
+#home {
+  margin-bottom: 5%;
+}
+
+
+#home span{
+  cursor: pointer;
+  
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#home span:after{
+  content: "\21a9";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -30%;
+  transition: 0.5s;
+}
+#home:hover span{
+  padding-left: 20%;
+}
+#home:hover span:after{
+  opacity: 1;
+  left: 0;
+}
+
+
+  
+  #logout{
+    margin-top: -5%;
+  
+}
+
+#logout span{
+  cursor: pointer;
+  position: relative;
+  transition: 0.5s;
+  display: block;
+}
+
+
+
+#logout span:after{
+  content: "\27A5";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: 3%;
+  transition: 0.5s;
+}
+
+#logout:hover span{
+   padding-right: 15%;
+}
+
+#logout:hover span:after{
+  opacity: 1;
+  right: 0;
+}  
+    </style>
+	
+	</head>
+	
+	<body>
+        <h2><p class="headr">Manager Login: User Name</p>
+            <span><a href="" id="logout" class="returnBtn" style="float: right"><span>Logout</span></a></span></h2>
+
+        <form action = "{{ url_for('addMenu') }}" method = "POST">
+           <h3 class="pageName">Menu Item Information</h3>
+           <p class="infoBox">Category(ex:"Dessert", "Appetizer" , "Entrees" ..etc )<br>
+           <input type = "text" name = "cat" /></br>
+           <br>
+           Item Name<br>
+           <input type = "text" name = "nme" /></br>
+           <br>
+           Item Price (ex: 2.25)<br>
+           <input type = "number" step = "0.01" name = "pri" /><br>
+            <br>
+           List of Ingredients(Seperate with a comma ex:Potato,Frying Oil, Salt, Pepper)<br>
+           <input type = "text" name = "ing" /><br>
+			      <br>
+           Quantity of Ingredient(write it as a list ex: 1.125,0.03,0.01,0.01) <br>
+           <input type = "text" name = "qua" /><br>
+		     <br>
+		       List of Units of Measure(ex: lbs,gal,lbs,lbs)<br>
+		   
+		       <input type = "text" name = "uom" /><br>
+           <input type = "submit" value = "submit" /><br></p>
+        </form>
+        <a href="{{url_for('menuoptions1')}}" id="home" class="returnBtn" > <span> Cancel</span></a>
+     </body>
+</html>

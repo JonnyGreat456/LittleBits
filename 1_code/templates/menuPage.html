@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Menu Management</title>
+    <style>
+  html{
+   background: -webkit-linear-gradient(45deg, #C60808, #141E30);
+   height: 160%;
+}
+#home{
+    margin-top: 1%;
+    margin-bottom: 4%;
+  }
+  
+#searchBtn{
+  margin-bottom: 4%;
+  margin-left: -2%;
+  padding: 0.5%;
+  display: block;
+  border-radius: 4px;
+  background-color: #FF5353;
+  text-align: center;
+  width: 7.65%;
+  font-size: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  
+  border: 1px solid black;
+}
+
+#searchBtn:hover{
+background-color: #ff3333;
+}
+
+
+
+#logout2{
+  margin-top: -5%;
+  font-size: 95%;
+}
+.pageName{
+  width: 16.6%;
+  margin: .01%;
+  margin-left: 40%;
+  border: 3px solid black;
+  padding-left: 5px;
+  padding-right: 10px;
+  padding: 5px;
+  background-color: #FF5779;
+  text-align: center;
+  margin-top: -4.3%;
+}
+.headr {
+  width: 16.6%;
+  margin: 0.7%;
+  border: 3px solid black;
+  padding-left: 5px;
+  padding-right: 10px;
+  padding: 0.4%;
+  background-color: #FF5779;
+}
+
+a:link, a:visited, a:active{
+  color: black;
+  text-decoration: none;
+}
+/*
+thead{
+  position: sticky;
+  top: 500px;
+}
+*/
+
+table {
+  border-collapse: collapse;
+  width: 75%;
+  
+  
+}
+#tbl{
+  /*float: left;*/
+  overflow-y: auto;
+  max-height: 500px;
+  margin-right: 15%;
+  margin-left: 15%;
+  
+}
+
+#tbl3{
+  overflow-y: auto;
+  max-height: 500px;
+  width: 60%;
+  margin-left: 19.5%;
+  
+}
+  
+td{
+  text-align: center;
+  padding: 1%;
+  padding-left: 1%;
+  padding-right: 2%;
+}
+
+
+th{
+  text-align: center;
+  padding: 8px;
+  background-color: #FF5353;
+  padding-left: 5px;
+  padding-right: 15px;
+  position: sticky;
+  top: -0.1%;
+}
+
+
+
+
+tr:nth-child(even){
+  background-color: #FF6F6F;
+}
+tr:nth-child(odd){
+  background-color: #FF8282;
+}
+  
+  
+    
+
+.returnBtn {
+  display: block;
+  border-radius: 4px;
+  background-color: #FF5353;
+  text-align: center;
+  width: 6.65%;
+  font-size: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 0.1%;
+  border: 1px solid black;
+  /*display: inline-block;*/
+  
+}
+
+.returnBtn span{
+  cursor: pointer;
+  
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.returnBtn span:after{
+  content: "\21a9";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -30%;
+  transition: 0.5s;
+}
+.returnBtn:hover span{
+  padding-left: 20%;
+}
+.returnBtn:hover span:after{
+  opacity: 1;
+  left: 0;
+}
+
+/* Container is necessary because td cannot be positioned relative */
+td .tooltipcontainer {
+    position: relative;
+}
+td .tooltip {
+    display: none;
+    position: absolute;
+    /* More positioning, heigh, width, etc */
+}
+td a:hover .tooltip {
+   width: 120px;
+    bottom: 100%;
+    left: 50%; 
+    margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+  background-color: red;
+  color: white;
+    display: block;
+}
+
+</style>
+        </style>
+    </head>
+    <body>
+
+        <div id="login_display">
+            <h2><p class="headr">Manager Login: User_name</p>
+    <span><a href="{{url_for('mainmenu1')}}"id="logout2" class="returnBtn" style="float: right" > <span> Logout</span></a></span></h2>
+    <h2><p class="pageName">Menu Management</p></h2>
+        </div>
+
+        <div id="logout">
+           <br>
+        </div>
+        
+<div>
+<h4><center><a href="{{url_for('searchbyIngredient')}}" id="searchBtn"> <span>Search By Ingredient</span></a></center></h4>
+</div>
+
+
+        <div id="tbl">
+            <table border = 1 align = "center">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Category</th>
+                        <th>Item Name</th>
+                        <th>Item Price</th>
+                        <th>List of Ratings</th>
+                        <th>Ingredient List</th>
+                        <th>Quantity List</th>
+                        <th>Units of Measure</th>
+                    </tr>
+                </thead>
+                 <tbody>
+                    {% for row in rows %}
+                    <tr>
+                        <td>{{row[0]}}</td>
+                        <td>{{row[1]}}</td>
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}</td> 
+                        <td>{{row[4]}}</td>
+                        <td>
+
+
+                          <a href="#">Ingredient
+                          <div class="tooltipcontainer">
+                          <div class="tooltip">{{row[5]}}</div>
+                          </div>
+                          </a>
+                        </td>
+                          
+                        <td>{{row[6]}}</td>
+                        <td>{{row[7]}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+            </table>
+        </div>
+        <div id="add_item">
+        </div>
+
+        <div id="remove_item">
+
+        </div>
+
+        <div id="update_item">
+            
+        </div>
+        
+        <div id="home_page">
+            <a href="{{url_for('menuoptions1')}}" id="home" class="returnBtn" > <span> Back</span></a>
+        </div>
+    </body>
+</html>
