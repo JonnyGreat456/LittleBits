@@ -24,14 +24,14 @@ def loginverify():
 		conn = sqlite3.connect('employeeprofile.db')
 		cursor = conn.execute("SELECT Name,Username,Password,Row FROM Employees")
 		for row in cursor:
-			#print row[1]
-			#print row[2]
+			print row[1]
+			print row[2]
 			if(uname == row[1] and pword == row[2]):
 				global login_user
 				login_user=row[0]
 				return render_template("employeemainpage.html",name=row[0])
 	if request.method =='GET':
-		#print(login_user)
+		print(login_user)
 		return render_template("employeemainpage.html",name=login_user)
 	return render_template('employeelogin.html')
 
@@ -58,7 +58,7 @@ def signup():
 			conn.execute("INSERT INTO Employees (Row,Name,POSITION,DOB,Phone,Pay,Username,Password) \
 				VALUES (NULL,?,?,?,?,?,?,?)",(fullname, position, dob,phone_number,pay,uname,pword));
 			conn.commit()
-			#print "Records created successfully"
+			print "Records created successfully"
 			conn.close()
 			return render_template("employeelogin.html")
 
@@ -66,8 +66,8 @@ def signup():
 def viewprofile():
 			global login_user
 			conn = sqlite3.connect('employeeprofile.db')
-			#print("&&&&&&&^&%%%&^^^^^^^^^^^^^^^^^^")
-			#print(login_user)
+			print("&&&&&&&^&%%%&^^^^^^^^^^^^^^^^^^")
+			print(login_user)
 			t=(login_user,)
 			cursor = conn.execute("SELECT * from Employees WHERE Name == ? COLLATE NOCASE",t)
 			return render_template("viewprofile.html", rows = cursor.fetchall())
@@ -76,8 +76,8 @@ def viewprofile():
 def empviewshift():
 			global login_user
 			conn = sqlite3.connect('employeeshiftsdb.db')
-			#print("*********************************")
-			#print(login_user)
+			print("*********************************")
+			print(login_user)
 			v=(login_user,)
 			cursor = conn.execute("SELECT * from EMPLOYEESHIFTS WHERE NAME == ? COLLATE NOCASE",v)
 			return render_template("empviewshift.html", rows = cursor.fetchall())
@@ -85,8 +85,8 @@ def empviewshift():
 def viewpayrate():
 			global login_user
 			conn = sqlite3.connect('employeeprofile.db')
-			#print("*********************************")
-			#print(login_user)
+			print("*********************************")
+			print(login_user)
 			p=(login_user,)
 			cursor = conn.execute("SELECT * from Employees WHERE Name == ? COLLATE NOCASE",p)
 			return render_template("viewpayrate.html", rows = cursor.fetchall())
@@ -95,8 +95,8 @@ def viewpayrate():
 def changeshifts():
 			global login_user
 			conn = sqlite3.connect('employeeshiftsdb.db')
-			#print("*********************************")
-			#print(login_user)
+			print("*********************************")
+			print(login_user)
 			v=(login_user,)
 			cursor = conn.execute("SELECT * from EMPLOYEESHIFTS WHERE NAME == ? COLLATE NOCASE",v)
 			return render_template("changeshifts.html", rows = cursor.fetchall())
@@ -118,7 +118,7 @@ def addshifts():
 				conn.execute("INSERT INTO EMPLOYEESHIFTS (NAME,ROLE,DAY,SHIFTSTART,SHIFTEND,STARTPERIOD,ENDPERIOD) \
 					VALUES (?,?,?,?,?,?,?)",(fname, role, day,shiftstart,spa,sea,epa));
 				conn.commit()
-				#print "Records created successfully"
+				print "Records created successfully"
 				conn.close()
 				return render_template("addshifts.html",name=login_user)
 

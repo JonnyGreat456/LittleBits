@@ -1,0 +1,7 @@
+CREATE TABLE students(
+student_id INTEGER NOT NULL,
+Item_Ordered VARCHAR(100), 
+quantity VARCHAR(50), 
+comments VARCHAR(500),
+table_number VARCHAR(200)
+)

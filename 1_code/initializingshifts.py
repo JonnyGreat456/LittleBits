@@ -3,7 +3,7 @@
 import sqlite3
 
 conn = sqlite3.connect('employeeshiftsdb.db')
-print("Opened database successfully");
+print "Opened database successfully";
 
 conn.execute("INSERT INTO EMPLOYEESHIFTS (NAME,ROLE,DAY,SHIFTSTART,SHIFTEND,STARTPERIOD,ENDPERIOD) \
       VALUES ('JAMES BEARD', 'CHEF', 'MONDAY',8,1,'am','pm')");
@@ -257,5 +257,5 @@ conn.execute("INSERT INTO EMPLOYEESHIFTS (NAME,ROLE,DAY,SHIFTSTART,SHIFTEND,STAR
 
 	  
 conn.commit()
-print("Records created successfully")
+print "Records created successfully";
 conn.close()
