@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="/static/mainlogdemo2.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+</style>
+</head>
+<body>
+<div class="box">Proceed to login></div>
+<div class = "buttons">
+<center>
+<a href="{{url_for('cheflogin')}}" ><button class="btn">CHEF</button></a>
+<a href="{{url_for('waiterlogin')}}" ><button class="btn">WAITER</button></a>
+<a href="{{url_for('busserlogin')}}" ><button class="btn">BUSSER</button></a>
+<a href="{{ url_for('managerlogin') }}"><button class="btn">MANAGER</button></center></a>
+</div>
+</body>
+</html>

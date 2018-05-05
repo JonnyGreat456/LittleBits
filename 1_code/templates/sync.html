@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Synchronized Sliders</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function(){
+
+            var socket = io.connect();
+
+            socket.on('connect', function() {
+                socket.emit('connect', {data: 'I\'m connected!'});
+            });
+
+            $('input.sync').on('input', function(event) {
+                socket.emit('value changed', {who: $(this).attr('id'), data: $(this).val()});
+                return false;
+            });
+
+            socket.on('update value', function(msg) {
+                $('input#'+msg.who).val(msg.data)
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <h1>Synchronized Sliders!</h1>
+
+    <input id="slider1" class="sync" type="range" min="0" max="50" value="{{slider1}}" /> <br>
+    <input id="slider2" class="sync" type="range" min="0" max="50" value="{{slider2}}" />
+
+    <input id="txt1" class="sync" type="text" />
+
+</body>
+</html>

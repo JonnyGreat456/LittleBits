@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/employeemainpage.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+</style>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="{{url_for('viewprofilewaiter')}}">View Profile</a>
+  <a href="{{url_for('empviewshiftwaiter')}}">View Shifts</a>
+  <a href="{{url_for('viewpayratewaiter')}}">View Pay Rate</a>
+  <a href="{{url_for('changeshiftswaiter')}}">Change Shifts</a>
+  <a href="{{url_for('chatapp')}}">Lil' Bits Chat</a>
+  <a href="{{url_for('trafficmonitoringwaiter')}}">Traffic Monitoring</a>
+  <a href="{{url_for('waiterlogin')}}">Logout</a>
+</div>
+<div class="open">
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;<b> Welcome {{name}} </b></span>
+</div>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+     
+</body>
+</html> 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!--initialization client side -->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+    socket.on('connect', function() {
+        socket.emit('my event', {data: 'I\'m connected!'});
+    });
+	
+            // Event handler for server sent data.
+            // The callback function is invoked whenever the server emits data
+            // to the client. The data is then displayed in the "Received"
+            // section of the page.
+    socket.on('my_response', function(msg) {
+		$('#log').append('<br>' + $('<div/>').text('Received #' + ': ' + msg.data).html());
+    });
+
+</script>
+<!--initialization ends-->
+
+
+</head>
+<body>
+<h1>the client </h1>
+<h2>Receive:</h2>
+    <div id="log"></div>
+</body>
+</html>

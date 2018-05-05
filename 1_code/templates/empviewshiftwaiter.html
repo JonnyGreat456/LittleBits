@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="/static/empviewshift4.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+.ho{
+background-image:url("/static/emp.jpg");
+font-family: verdana;
+width:100%;
+height:100%;
+background-repeat:repeat;
+}
+.table1{
+background-color:#F5B041  ;
+width:40%;
+}
+th,td{
+font-size:25px;
+}
+h1{
+font-size:35px;
+}
+</style>
+</head>
+<body class="ho">
+
+
+<h1> Shifts</h1>
+<div class="table1">
+            <table  border="collapse" id = "demo " border = 1>
+                <thead>
+                    <tr>
+                        
+                        <th>Day</th>
+                        <th>Shift Start</th>
+                        <th>Shift End</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+					
+                    <tr>
+                        
+                        <td>{{row[2]}}</td>
+                        <td>{{row[3]}}:00 {{row[5]}}</td>	
+                        <td>{{row[4]}}:00 {{row[6]}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+</div>
+<a href="{{url_for('loginverifywaiter')}}"><button class = "back">Go back to Main Page</button></a>
+</body>
+</html>

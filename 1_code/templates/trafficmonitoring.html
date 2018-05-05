@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.po{
+background-image:url("/static/re.jpg");
+}
+.demo{
+margin-left:5%;
+border-collapse:collapse;
+width:50%;
+float:left;
+}
+.demo2{
+margin-left:5%;
+border-collapse:collapse;
+width:50%;
+float:right;
+}
+
+th,td{
+font-family:arial;
+font-size:25px;
+}
+a{margin-left:20%;
+}
+tr:nth-child(even){background-color:#f2f2f2}
+tr:nth-child(odd){background-color:#f2f2f2}
+th{
+background-color:#FD8B79;
+}
+button{
+height:45px;
+width:95px;
+}
+
+</style>
+<body class="po">
+            </table>
+				            <table  border="collapse" id = "demo2 " border = 1>
+                <thead>
+                    <tr>
+                        
+                        <th>Table Number</th>
+                        <th>Reserved</th>
+                        <th>Vacant</th>
+						<th>Occupied</th>
+						<th>Dirty</th>
+						<th>Clean</th>
+						<th>Refresh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+					
+                    <tr>
+                        <form action = "{{url_for('trafficmonitoringupdate')}}" method = "POST">
+                        <td><input type = "text" name = "tablename" value = "{{row[0]}}" readonly></td>
+                        <td><input type = "text" name = "resname" value = "{{row[1]}}"></td>	
+                        <td><input type = "text" name = "vacname" value = "{{row[2]}}"></td>
+						<td><input type = "text" name = "occname" value = "{{row[3]}}"></td>
+						<td><input type = "text" name = "dirtyname" value = "{{row[4]}}"></td>
+						<td><input type = "text" name = "cleanname" value = "{{row[5]}}"></td>
+						<td><button type = "submit">Refresh</button></td>
+                    </tr>
+					
+                    {% endfor %} </form>
+                </tbody>
+            </table>
+
+			<a href="{{url_for('loginverifywaiter')}}"><button class = "back">Go back to Main Page</button></a>
+
+			
+<script>
+</script>
+</body>
+</html>
