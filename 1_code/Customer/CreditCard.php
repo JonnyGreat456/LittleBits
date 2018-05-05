@@ -1,6 +1,7 @@
+<!--This is the home page that connects all the Customer interface pages together-->
 <html>
   
-
+<!-- This Css code is for the buttons through out the pages, the colors chosen (red, orange and yellow) are proven to be appetizing. The buttons highlight when hoverd over and change color when clicked to provide feed back to the customers ordering-->
 <style>
 .button {
    border: 1px solid #0a3c59;
@@ -58,8 +59,10 @@
     padding-left: 0px;
 }
    </style>
+      <!-- This is the background for our website-->
    <body background="pexels-photo-326279 (1).jpeg">
    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!--Css code for the tab tool bar buttons-->
 <style>
 body {
   margin: 0;
@@ -91,17 +94,23 @@ body {
 }
 </style>
 </head>
+<!--This is the website tab bar that allows the customer to navigate through the website easily. To access any functionality on our website, two clicks or less are required for ease of use-->
 <body>
+
 
 
 <div style="padding-left:16px">
 
-<!-- This is uno game from silver games-->
-<iframe src="https://www.silvergames.com/en/uno-online/iframe" width="740" height="600" style="margin:0;padding:0;border:0"></iframe>
-<p style="text-align:center">More <a href="https://www.silvergames.com/en/t/board">Board Games Online</a> on Silvergames.com!</p>
-<!-- End of game embed code -->
-    
+</div>
+<!--buttons for the different game options-->
+   <h1 style="text-align: center;"><span style="color: #ffffff;">Select a payment method</span></h1>
+
+   <div><form>
+<input class="Button" type="button" value="CreditCard"onclick="location.href='Credit_card.php';" />
+</form><div>
+  <div><<form>
+<input class="Button" type="button" value="Paypal"onclick="location.href='Paypal.html';"/>
+</form><div>
 
 </body>
 </html>
-
