@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+           html{
+	 background: -webkit-linear-gradient(45deg, #C60808, #141E30);
+	 height: 100%;
+}
+a:link, a:visited, a:active{
+	color: black;
+	text-decoration: none;
+}
+
+.pageName{
+	width: 16.6%;
+	margin: .01%;
+	margin-left: 40%;
+	border: 3px solid black;
+	padding-left: 5px;
+	padding-right: 10px;
+	padding: 5px;
+	background-color: #FF5779;
+	text-align: center;
+	
+}
+.returnBtn {
+	display: block;
+	border-radius: 4px;
+	background-color: #FF5353;
+	text-align: center;
+	width: 6.65%;
+	font-size: 20px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 0.1%;
+	border: 1px solid black;
+	/*display: inline-block;*/
+	
+}
+
+
+.returnBtn span{
+	cursor: pointer;
+	
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.returnBtn span:after{
+	content: "\21a9";
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	left: -30%;
+	transition: 0.5s;
+}
+.returnBtn:hover span{
+	padding-left: 20%;
+}
+.returnBtn:hover span:after{
+	opacity: 1;
+	left: 0;
+}
+        </style>
+    </head>
+   <body>
+   
+      <p class="pageName"> result of operation : {{ msg }}</p>
+      <h2><a href ="{{url_for('employeePortal1')}}" class="returnBtn"><span> Back</span></a></h2>
+
+   </body>
+</html>

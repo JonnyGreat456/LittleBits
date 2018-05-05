@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <style>
+                html{
+                height: 150%;
+                background: -webkit-linear-gradient(45deg, #c60808, #141E30); 
+            }
+            a:link, a:visited, a:active{
+                color: black;
+                text-decoration: none;
+            }
+            #cancel2{
+                margin-bottom: 12%;
+            }
+            #logout{
+                margin-top: -5%;
+                font-size: 95%;
+            }
+            .pageName{
+                width: 16.6%;
+                margin: .01%;
+                margin-left: 40%;
+                border: 3px solid black;
+                padding-left: 5px;
+                padding-right: 10px;
+                padding: 5px;
+                background-color: #ff5779;
+                text-align: center;
+                margin-top: -4.3%;
+            }
+            .headr {
+                width: 16.6%;
+                margin: 0.7%;
+                border: 3px solid black;
+                padding-left: 5px;
+                padding-right: 10px;
+                padding: 0.4%;
+                background-color: #ff5779;
+            }		
+            .infoBox {
+                font-size: 20px;
+                width: 30%;
+                margin: 2%;
+                border: 3px solid black;
+                /*padding-left: 25px;
+                padding-right: 15px;*/
+                padding: 2%;
+                background-color: #ff5779;
+                margin-left: 32%;
+                margin-top:	5%;
+            }	
+            .returnBtn {
+                display: block;
+                border-radius: 4px;
+                background-color: #ff5353;
+                text-align: center;
+                width: 6.65%;
+                font-size: 150%;
+                transition: all 0.5s;
+                cursor: pointer;
+                margin: 0.1%;
+                border: 1px solid black;
+                /*display: inline-block;*/
+            }
+            #home {
+                margin-bottom: 5%;
+            }
+            #home span{
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+            #home span:after{
+                content: "\21a9";
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                left: -30%;
+                transition: 0.5s;
+            }
+            #home:hover span{
+                padding-left: 20%;
+            }
+            #home:hover span:after{
+                opacity: 1;
+                left: 0;
+            }
+            #logout{
+                margin-top: -5%;
+            }
+            #logout	span{
+                cursor: pointer;
+                  position: relative;
+                  transition: 0.5s;
+                  display: block;
+            }
+            #logout span:after{
+                  content: "\27A5";
+                  position: absolute;
+                  opacity: 0;
+                  top: 0;
+                  right: 3%;
+                  transition: 0.5s;
+            }
+            #logout:hover span{
+                 padding-right: 15%;
+            }
+            #logout:hover span:after{
+                opacity: 1;
+                right: 0;
+            }
+            </style>
+
+</head>
+
+<body>
+<h2><p class="headr">Manager Login: User_name</p>
+		<span><a href="{{url_for('mainmenu1')}}}"id="logout" class="returnBtn" style="float: right" > <span> Logout</span></a></span></h2>		
+	
+	<h3 class="pageName">Search Invetory</h3>
+	<form action ="{{ url_for('searchInv') }}" method = "POST">
+	<div class="infoBox">
+	<h1><center>Item Information</center></h1>
+      <p><center>Search Inventory Item</center></p>
+      <hr>
+      
+            Item Name<br>
+            <input type = "text" name = "nm" /></br>
+            <br>
+            Expiration Date (Format: YYYY-MM-DD)<br>
+            <input type = "text" name = "exp" /><br>
+            </p>
+	  
+        
+        <br><button type="submit" class="signupbtn">Continue</button></br>
+		
+		</p>
+      </div>
+	  </div>
+    </form>
+	  <a href="{{url_for('inventorymenu1')}}"id="home" class="returnBtn" > <span> Cancel</span></a>
+	</body>
+	</html>

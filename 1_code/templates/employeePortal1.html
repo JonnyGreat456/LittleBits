@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Inventory Menu</title>
+	<title>Employee Portal</title>
 	<style type="text/css" media="screen">
 		html{
 			 background: -webkit-linear-gradient(45deg, #C60808, #141E30); 
@@ -155,15 +155,13 @@
 	</head>
 	
 	<body>
-		<h2><p class="headr">Manager Login: User Name</p>
-			<span><a href="{{url_for('mainmenu1')}}" id="logout" class="returnBtn" style="float: right"><span>Logout</span></a></span></h2>
-		<h2><p class="pageName">Menu & Ratings</p></h2>
-		<a href="{{url_for('addtoMenu')}}" id="addBtn" class="mainBtn" > <span>Add Menu Item </span></a>
-		<a href="{{url_for('deleteFromMenu')}}"id="delBtn" class="mainBtn" > <span>Delete Menu Item </span></a>
-		<br>
-		<a href="{{url_for('updateMenuItem')}}"id="updBtn" class="mainBtn"><span>Update Menu Item </span></a>
-		<a href="{{url_for('menuPage')}}"id="viewBtn" class="mainBtn"> <span>View Menu</span></a>
+	<h2><p class="headr">Manager Login: User_name</p>
+		<span><a href="{{url_for('mainmenu1')}}"id="logout" class="returnBtn" style="float: right" > <span>Logout </span></a></span></h2>
+		<h2><p class="pageName">Employee Portal</p></h2>
+		<a href="{{url_for('addEmployee1')}}" id="trsBtn" class="mainBtn" > <span>Add Employee </span></a>
+		<a href="{{url_for('deleteEmployee1')}}"id="proBtn" class="mainBtn" > <span>Delete Employee </span></a>
+		<a href="{{url_for('wagesPage')}}"id="empBtn" class="mainBtn"> <span>View Roster </span></a>
 		
-		<a href="{{url_for('mainmenu1')}}"id="home1" class="returnBtn" > <span> Home</span></a>
+		<a href="{{url_for('financemenu1')}}"id="home1" class="returnBtn" > <span> Back</span></a>
 	</body>
 </html>

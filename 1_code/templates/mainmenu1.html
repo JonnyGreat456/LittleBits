@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Inventory Menu</title>
-	<style type="text/css" media="screen">
-		html{
+		<title> Main Menu</title>
+		<style type="text/css" media="screen">
+			html{
 			 background: -webkit-linear-gradient(45deg, #C60808, #141E30); 
 			 height: 100%;
 		}
@@ -151,19 +151,17 @@
 			opacity: 1;
 			right: 0;
 		}
-	</style>
+		</style>
+		
 	</head>
 	
 	<body>
 		<h2><p class="headr">Manager Login: User Name</p>
-			<span><a href="{{url_for('mainmenu1')}}" id="logout" class="returnBtn" style="float: right"><span>Logout</span></a></span></h2>
-		<h2><p class="pageName">Menu & Ratings</p></h2>
-		<a href="{{url_for('addtoMenu')}}" id="addBtn" class="mainBtn" > <span>Add Menu Item </span></a>
-		<a href="{{url_for('deleteFromMenu')}}"id="delBtn" class="mainBtn" > <span>Delete Menu Item </span></a>
-		<br>
-		<a href="{{url_for('updateMenuItem')}}"id="updBtn" class="mainBtn"><span>Update Menu Item </span></a>
-		<a href="{{url_for('menuPage')}}"id="viewBtn" class="mainBtn"> <span>View Menu</span></a>
-		
-		<a href="{{url_for('mainmenu1')}}"id="home1" class="returnBtn" > <span> Home</span></a>
+		<span><a href="{{url_for('mainmenu1')}}" id="logout" class="returnBtn" style="float: right"><span>Logout</span></a></span></h2>
+		<h2><p class="pageName">Home</p></h2>
+		<a href="{{url_for('inventorymenu1')}}" class="mainBtn" id="addBtn"><span>Inventory </span></a>
+		<a href="{{url_for('financemenu1')}}" class="mainBtn" id="delBtn"><span>Finances </span></a>
+		<a href="{{url_for('restaurantTraffic1')}}" class="mainBtn" id="updBtn"><span>Restaurant Traffic </span></a>
+		<a href="{{url_for('menuoptions1')}}" class="mainBtn" id="viewBtn"><span>Menu & Ratings</span></a>
 	</body>
 </html>

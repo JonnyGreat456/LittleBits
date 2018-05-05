@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Restaraunt Traffic</title>
+<style>
+       html{
+	 			background: -webkit-linear-gradient(45deg, #c60808, #141E30);
+				 height: 100%;
+			}
+			#home{
+				margin-top: 1%;
+				margin-bottom: 4%;
+			}
+			#logout2{
+				margin-top: -5%;
+				font-size: 95%;
+			}
+			.pageName{
+				width: 16.6%;
+				margin: .01%;
+				margin-left: 40%;
+				border: 3px solid black;
+				padding-left: 5px;
+				padding-right: 10px;
+				padding: 5px;
+				background-color: #ff5779;
+				text-align: center;
+				margin-top: -4.3%;
+			}
+			.headr {
+				width: 16.6%;
+				margin: 0.7%;
+				border: 3px solid black;
+				padding-left: 5px;
+				padding-right: 10px;
+				padding: 0.4%;
+				background-color: #ff5779;
+			}
+			a:link, a:visited, a:active{
+				color: black;
+				text-decoration: none;
+			}
+			/*
+			thead{
+				position: sticky;
+				top: 500px;
+			}
+			*/
+			table {
+				border-collapse: collapse;
+				width: 100%;
+			}
+			#tbl{
+				/*float: left;*/
+				overflow-y: auto;
+				max-height: 500px;
+				margin-right: 15%;
+				margin-left: 15%;
+			}
+			/*#tbl2{
+			}*/
+			#tbl3{
+				overflow-y:auto;
+				max-height: 500px;
+				width: 60%;
+				margin-left: 19.5%;
+			}	
+			td{
+				text-align: center;
+				padding: 1%;
+				padding-left: 2%;
+				padding-right: 2%;
+			}
+			th{
+				text-align: center;
+				padding: 8px;
+				background-color: #ff5353;
+				padding-left: 15px;
+				padding-right: 15px;
+				position: sticky;
+				top: -0.1%;
+			}
+			tr:nth-child(even){
+				background-color: #ff8282;
+			}
+			tr:nth-child(odd){
+				background-color: #ff6f6f;
+			}	
+			.returnBtn {
+				display: inline-table;
+				border-radius: 4px;
+				background-color: #ff5353;
+				text-align: center;
+				width: 100px;
+				font-size: 20px;
+				transition: all 0.5s;
+				cursor: pointer;
+				margin: 5px;
+				border: 1px solid black;
+				/*display: inline-block;*/
+			}
+			.returnBtn {
+				display: block;
+				border-radius: 4px;
+				background-color: #ff5353;
+				text-align: center;
+				width: 6.65%;
+				font-size: 20px;
+				transition: all 0.5s;
+				cursor: pointer;
+				margin: 0.1%;
+				border: 1px solid black;
+				/*display: inline-block;*/
+			}
+			.returnBtn span{
+				cursor: pointer;
+				display: inline-block;
+				position: relative;
+				transition: 0.5s;
+			}
+			.returnBtn span:after{
+				content: "\21a9";
+				position: absolute;
+				opacity: 0;
+				top: 0;
+				left: -30%;
+				transition: 0.5s;
+			}
+			.returnBtn:hover span{
+				padding-left: 20%;
+			}
+			.returnBtn:hover span:after{
+				opacity: 1;
+				left: 0;
+			}
+    </style>
+    </head>
+    <body>
+        <div id="login_display">
+            <h2><p class="headr">Manager Login: User_name</p>
+		<span><a href="{{url_for('mainmenu1')}}"id="logout2" class="returnBtn" style="float: right" > <span> Logout</span></a></span></h2>
+		<h2><p class="pageName">Restaraunt Traffic</p></h2>
+        </div>
+
+        <div id="logout">
+           <br>
+        </div>
+
+        <div id="tbl">
+            <table border = 1>
+                <thead>
+                    <tr>
+						<th>Table No.</th>
+                        <th>Reserved</th>
+                        <th>Vacant</th>
+                        <th>Occupied</th>
+                        <th>Dirty</th>
+                        <th>Clean</th>
+						
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>row 1</td>
+                        <td>row 2</td>
+                        <td>row 3</td>	
+                        <td>row 4</td>
+						<td>row 5</td>
+						
+                    </tr>
+					<tr>
+                        <td>2</td>
+                        <td>row 1</td>
+                        <td>row 2</td>
+                        <td>row 3</td>	
+                        <td>row 4</td>
+						<td>row 5</td>
+						
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>row 1</td>
+                        <td>row 2</td>
+                        <td>row 3</td>	
+                        <td>row 4</td>
+						<td>row 5</td>
+						
+                    </tr>
+					<tr>
+                        <td>4</td>
+                        <td>row 1</td>
+                        <td>row 2</td>
+                        <td>row 3</td>	
+                        <td>row 4</td>
+						<td>row 5</td>
+						
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>row 1</td>
+                        <td>row 2</td>
+                        <td>row 3</td>	
+                        <td>row 4</td>
+						<td>row 5</td>
+						
+                    </tr>
+					<tr>
+                        <td>6</td>
+                        <td>row 1</td>
+                        <td>row 2</td>
+                        <td>row 3</td>	
+                        <td>row 4</td>
+						<td>row 5</td>
+						                   
+					</tr>
+					<tr>
+                        <td>7</td>
+                        <td>row 1</td>
+                        <td>row 2</td>
+                        <td>row 3</td>	
+                        <td>row 4</td>
+						<td>row 5</td>
+						
+                    </tr>
+					<tr>
+                        <td>8</td>
+                        <td>row 1</td>
+                        <td>row 2</td>
+                        <td>row 3</td>	
+                        <td>row 4</td>
+						<td>row 5</td>
+						
+                    </tr>
+					<tr>
+                        <td>9</td>
+                        <td>row 1</td>
+                        <td>row 2</td>
+                        <td>row 3</td>	
+                        <td>row 4</td>
+						<td>row 5</td>
+						
+                    </tr>
+					<tr>
+                        <td>10</td>
+                        <td>row 1</td>
+                        <td>row 2</td>
+                        <td>row 3</td>	
+                        <td>row 4</td>
+						<td>row 5</td>
+						
+                    </tr>
+					
+                    
+                </tbody>
+            </table>
+        </div>
+		<a href="{{url_for('mainmenu1')}}" id="home2" class="returnBtn" > <span> Home</span></a>
+		</body>
+	</html>

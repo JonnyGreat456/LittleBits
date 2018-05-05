@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Delete Item Form</title>
-		<style>
-              html{
+<head>
+<style>
+        html{
             height: 150%;
             background: -webkit-linear-gradient(45deg, #c60808, #141E30); 
         }
@@ -112,24 +111,41 @@
             opacity: 1;
             right: 0;
         }
-            </style>
-	</head>
-	
-	<body>
-        <h2><p class="headr">Manager Login: User Name</p>
-            <span><a href="" id="logout" class="returnBtn" style="float: right"><span>Logout</span></a></span></h2>
+    </style>
+</head>
 
-            <form action = "{{ url_for('delInv') }}" method = "POST">
-                    <h3 class="pageName">Inventory Item Information</h3>
-                    <p class="infoBox">
-                    Item Name<br>
-                    <input type = "text" name = "nm" /></br>
-                    <br>
-                    Expiration Date (Format: YYYY-MM-DD)<br>
-                    <input type = "text" name = "exp" /><br>
-                    <input type = "submit" value = "submit" /><br>
-                    </p>
-                 </form>
-        <a href="{{ url_for('inventorymenu1') }}"id="home" class="returnBtn" > <span> Cancel</span></a>
-     </body>
-</html>
+<body>
+<h2><p class="headr">Manager Login: User_name</p>
+		<span><a href="{{url_for('mainmenu1')}}"id="logout" class="returnBtn" style="float: right" > <span> Logout</span></a></span></h2>
+		
+	<h3 class="pageName">New Employee Information</h3>
+	<form action = "{{ url_for('addEmp') }}" method = "POST">
+        <p class="infoBox">Full Name<br>
+        <input type = "text" name = "name" /></br>
+        <br>
+        Position<br>
+        <select name = "role">
+            <option value="Manager">Manager</option>
+            <option value="Chef">Chef</option>
+            <option value="Waiter">Waiter</option>
+            <option value="Busser">Busser</option>
+        </select>
+        <br>
+        <br>
+        Date of Birth (Format: MM-DD-YYYY)<br>
+        <input type = "integer" name = "dob" /><br>
+        <br>
+        Phone Number (Format: XXX-XXX-XXXX)<br>
+        <input type = "text" name = "phone" /><br>
+         <br>
+        UserName <br>
+        <input type = "text" name = "uname" /><br>
+        <br>
+        Password<br>
+        <input type = "text" name = "pword" /><br>
+        
+        <input type = "submit" value = "submit" /><br></p>
+     </form>
+	  <a href="{{url_for('employeePortal1')}}"id="home" class="returnBtn" > <span> Cancel</span></a>
+	</body>
+	</html>

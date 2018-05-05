@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+           html{
+	 background: -webkit-linear-gradient(45deg, #C60808, #141E30);
+	 height: 100%;
+}
+a:link, a:visited, a:active{
+	color: black;
+	text-decoration: none;
+}
+
+.pageName{
+	width: 16.6%;
+	margin: .01%;
+	margin-left: 40%;
+	border: 3px solid black;
+	padding-left: 5px;
+	padding-right: 10px;
+	padding: 5px;
+	background-color: #FF5779;
+	text-align: center;
+	
+}
+.returnBtn {
+	display: block;
+	border-radius: 4px;
+	background-color: #FF5353;
+	text-align: center;
+	width: 6.65%;
+	font-size: 20px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 0.1%;
+	border: 1px solid black;
+	/*display: inline-block;*/
+	
+}
+
+
+.returnBtn span{
+	cursor: pointer;
+	
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.returnBtn span:after{
+	content: "\21a9";
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	left: -30%;
+	transition: 0.5s;
+}
+.returnBtn:hover span{
+	padding-left: 20%;
+}
+.returnBtn:hover span:after{
+	opacity: 1;
+	left: 0;
+}
+        </style>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript">
+                var tableData = {{ dictionary|tojson }};
+                var coeff = {{ numbers|tojson }};
+				var xaxis = {{ xaxis|tojson }};
+				var days = {{ days|tojson }};
+        </script>
+        <script type = "text/javascript">
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+            
+            function drawChart() {
+                var dataArray = [['Date','Profit']];
+                for (var n =0; n < tableData.length; n++){
+                    dataArray.push ([xaxis[n], parseFloat(tableData[n][1])]) 
+                }
+				
+				var newStart = xaxis[xaxis.length-1] + 1;
+				alert(newStart)
+				for (var v = newStart; v < days; v++){
+					dataArray.push([v,parseFloat(((v**3)*coeff[0])+((v**2)*coeff[1])+((v)*coeff[2])+(coeff[3]))])
+				}
+				
+				
+				
+                var data = google.visualization.arrayToDataTable(dataArray);
+    
+                var options = {
+                    title: 'Restaurant Performance',
+                    curveType: 'function',
+                    legend: { position: 'bottom' }
+                };
+    
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+    
+            chart.draw(data, options);
+            }
+        </script>
+    </head>
+   <body>
+   
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+    <h2><a href ="{{url_for('profitMenu')}}" class="returnBtn"><span> Back</span></a></h2>
+
+   </body>
+</html>
