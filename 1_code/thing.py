@@ -212,7 +212,6 @@ def delMenu():
 			cat = request.form['cat']
 			nme = request.form['nme']
 			con = sql.connect('menu.db')
-			print("Good\n")
 			con.execute("DELETE FROM menu WHERE (category=? AND itemName=?);",(cat,nme))
 			con.commit()
 			print("Good\n")
